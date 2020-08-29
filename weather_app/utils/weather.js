@@ -14,7 +14,7 @@ const request = require('request')
 // })
 
 const getweatherinfo = (latitute, longitude, callback)=>{
-    const url  = 'http://api.weaatherapi.com/v1/current.json?key=9d0967b05e6048f6b7b122823202808&q='+ latitute + ',' + longitude
+    const url  = 'http://api.weatherapi.com/v1/current.json?key=9d0967b05e6048f6b7b122823202808&q='+ latitute + ',' + longitude
 
     request({url: url,json:true},(error,response)=>{
         if(error){
@@ -34,7 +34,4 @@ const getweatherinfo = (latitute, longitude, callback)=>{
 
 }
 
-getweatherinfo(-120.52361,-120.84778,(error,data)=>{
-    console.log('Error',error)
-    console.log('Data',data)
-})
+module.exports = getweatherinfo
