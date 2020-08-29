@@ -17,8 +17,10 @@ const geocode = (address,callback)=>{
             latitude: 0,
             longitute: 0
         }
+        callback(data)
     },2000)  
 }
 
-const data = geocode('delhi')
-console.log(data)
+geocode('delhi',(data)=>{
+    console.log(data)
+})
