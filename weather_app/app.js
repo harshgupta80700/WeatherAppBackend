@@ -14,8 +14,13 @@
 const getLatiandLong = require('./utils/getLandL')
 const getweatherinfo = require('./utils/weather')
 
-getLatiandLong('Delhi',(error, data)=>{
-    if(error){
+const address = process.argv[2]
+console.log(address)
+
+getLatiandLong(address,(error, data)=>{
+    if(!address){
+        return console.log('parameter is required')
+    }else if(error){
         return console.log(error)
     }    
     getweatherinfo(data.latitude,data.longitude,(error,getweatherdata)=>{
