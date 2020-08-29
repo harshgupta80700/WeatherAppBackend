@@ -17,10 +17,11 @@ console.log(data)
 const product ={
     label: "red Notebook",
     price: 100,
-    stock: 15
+    stock: 15,
+    //rating: 4.2
 }
 
-const {label: productlabel, stock,rating} = product
+const {label: productlabel, stock,rating=5} = product
 
 console.log(productlabel)
 console.log(stock)
