@@ -20,8 +20,8 @@ const product ={
     stock: 15
 }
 
-const {label, stock,rating} = product
+const {label: productlabel, stock,rating} = product
 
-console.log(label)
+console.log(productlabel)
 console.log(stock)
 console.log(rating)
