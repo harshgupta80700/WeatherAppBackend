@@ -16,18 +16,18 @@ const request = require('request')
 const getweatherinfo = (latitute, longitude, callback)=>{
     const url  = 'http://api.weatherapi.com/v1/current.json?key=9d0967b05e6048f6b7b122823202808&q='+ latitute + ',' + longitude
 
-    request({url: url,json:true},(error,response)=>{
+    request({url,json:true},(error,{body})=>{
         if(error){
             callback('Unable to connect with the get weather service!',undefined)
-        }else if(response.body.error){
-            callback(response.body.error.message,undefined)
+        }else if(body.error){
+            callback(body.error.message,undefined)
         }else{
             callback(undefined,{
-                name: response.body.location.name,
-                region: response.body.location.region,
-                country: response.body.location.country,
-                tempinf: response.body.current.temp_f,
-                tempinc: response.body.current.temp_c
+                name: body.location.name,
+                region: body.location.region,
+                country: body.location.country,
+                tempinf: body.current.temp_f,
+                tempinc: body.current.temp_c
             })
         }
     })

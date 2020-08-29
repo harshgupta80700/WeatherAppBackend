@@ -20,19 +20,20 @@ console.log(address)
 if(!address){
     console.log('parameter is required')
 }else{
-    getLatiandLong(address,(error, data)=>{
+    getLatiandLong(address,(error,{latitude,longitude,location})=>{
         if(error){
             return console.log(error)
         }    
-        getweatherinfo(data.latitude,data.longitude,(error,getweatherdata)=>{
+        getweatherinfo(latitude,longitude,(error,{name,region,country,tempinf,tempinc})=>{
            if(error){
                return console.log(error)
            }
-           console.log('Name',getweatherdata.name)
-           console.log('Region',getweatherdata.region)
-           console.log('Country',getweatherdata.country)
-           console.log('Temp in F',getweatherdata.tempinf)
-           console.log('Temp in C',getweatherdata.tempinc)
+           console.log('Location',location)
+           console.log('Name',name)
+           console.log('Region',region)
+           console.log('Country',country)
+           console.log('Temp in F',tempinf)
+           console.log('Temp in C',tempinc)
         })
     
     })
