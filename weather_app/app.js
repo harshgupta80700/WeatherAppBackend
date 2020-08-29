@@ -12,14 +12,22 @@
 // console.log('Stopping')
 
 const getLatiandLong = require('./utils/getLandL')
-const getweatherinfo = require('./weather')
+const getweatherinfo = require('./utils/weather')
 
-getLatiandLong('Pune',(error, data)=>{
-    console.log('Error',error)
-    console.log('Data', data)
+getLatiandLong('Delhi',(error, data)=>{
+    if(error){
+        return console.log(error)
+    }    
+    getweatherinfo(data.latitude,data.longitude,(error,getweatherdata)=>{
+       if(error){
+           return console.log(error)
+       }
+       console.log('Name',getweatherdata.name)
+       console.log('Region',getweatherdata.region)
+       console.log('Country',getweatherdata.country)
+       console.log('Temp in F',getweatherdata.tempinf)
+       console.log('Temp in C',getweatherdata.tempinc)
+    })
+
 })
 
-getweatherinfo(18.52361,73.84778,(error,data)=>{
-    console.log('Error',error)
-    console.log('Data',data)
-})
