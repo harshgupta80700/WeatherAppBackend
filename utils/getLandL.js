@@ -48,7 +48,9 @@ const getLatituteandLongitute = (address,callback) => {
     })
 }
 
-getLatituteandLongitute('New York',(error, data)=>{
+getLatituteandLongitute('India',(error, data)=>{
     console.log('Error',error)
     console.log('Data', data)
 })
+
+module.exports = getLatituteandLongitute
