@@ -1,6 +1,6 @@
 const request = require('request')
 
-const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/Delhi.json?limit=1&access_token=pk.eyJ1IjoiaGFyc2g4MDciLCJhIjoiY2tlZWE0MDR3MGVoZzJxbjdlaGhjZ2ZoMCJ9.AIL-3P7lFbQZ3iSFDLvKkw'
+const url = 'https://api.mapbox.com/geocoding/v5/mapbox.places/12max.json?limit=1&access_token=pk.eyJ1IjoiaGFyc2g4MDciLCJhIjoiY2tlZWE0MDR3MGVoZzJxbjdlaGhjZ2ZoMCJ9.AIL-3P7lFbQZ3iSFDLvKkw'
 
 request({url: url,json: true},(error,response)=>{
 
@@ -8,6 +8,8 @@ request({url: url,json: true},(error,response)=>{
         console.log('Unable to get the Latitude and longitude service!')
     }else if(response.body.message){
         console.log(response.body.message)
+    }else if(response.body.features.length === 0){
+        console.log('There is no such place exist!!')
     }else{
         console.log(response.body.features[0].center[0])
         console.log(response.body.features[0].center[1])
