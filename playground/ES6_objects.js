@@ -26,3 +26,10 @@ const {label: productlabel, stock,rating=5} = product
 console.log(productlabel)
 console.log(stock)
 console.log(rating)
+
+
+const transaction = (type,{label,stock})=>{
+    console.log(type,'Label =',label, 'Stock =',stock)
+}
+
+transaction('Order',product)
