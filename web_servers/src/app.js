@@ -7,7 +7,18 @@ app.get('',(req , res)=>{
 })
 
 app.get('/help',(req,res)=>{
-    res.send('This is the Help Page')
+    res.send([
+        {
+            name: 'Harsh Gupta',
+            tech: 'Backend and Flutter developer',
+            age: 20
+        },
+        {
+            name: 'Harsh Gupta',
+            tech: 'Backend and Flutter developer',
+            age: 20
+        }
+    ])
 })
 
 app.get('/about',(req,res)=>{
