@@ -11,7 +11,11 @@ app.get('/help',(req,res)=>{
 })
 
 app.get('/about',(req,res)=>{
-    res.send('this is the about page')
+    res.send({
+        name: 'Harsh Gupta',
+        tech: 'Backend and Flutter developer',
+        age: 20
+    })
 })
 
 app.get('/weather',(req,res)=>{
