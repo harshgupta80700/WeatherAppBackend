@@ -30,7 +30,10 @@ app.get('/about',(req,res)=>{
 })
 
 app.get('/weather',(req,res)=>{
-    res.send('This is the weather app')
+    res.send({
+        forecast: 'There is sunny day out there',
+        location: 'This is located in India'
+    })
 })
 
 app.listen(3000,()=>{
