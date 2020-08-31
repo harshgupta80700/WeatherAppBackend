@@ -12,7 +12,10 @@ app.set('view engine','hbs')
 
 app.use(express.static(publicDirectoryPath))
 app.get('',(req,res)=>{
-    res.render('index')
+    res.render('index',{
+        title: 'Weather app',
+        name: 'Harsh Gupta'
+    })
 })
 
 // app.get('',(req , res)=>{    
