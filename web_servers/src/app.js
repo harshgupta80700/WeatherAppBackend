@@ -18,6 +18,13 @@ app.get('',(req,res)=>{
     })
 })
 
+app.get('/about',(req,res)=>{
+    res.render('about',{
+        title: 'About Me',
+        name: 'Harsh Gupta'
+    })
+})
+
 // app.get('',(req , res)=>{    
 //     res.send('<h1>Hello Express!</h1>')
 // })
