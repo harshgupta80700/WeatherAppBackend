@@ -10,3 +10,13 @@ img{
 h2{
     color: blue;
 }
+
+body{
+    background-color: powderblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer{
+    background-color: black;
+    color: white;
+}
