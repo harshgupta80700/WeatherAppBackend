@@ -33,7 +33,9 @@ app.get('/about',(req,res)=>{
 
 app.get('/help',(req,res)=>{
     res.render('help',{
-        message: 'This is the help page... Feel free to ask!'
+        message: 'This is the help page... Feel free to ask!',
+        title: 'Help page',
+        name: 'Harsh Gupta'
     })
 })
 
