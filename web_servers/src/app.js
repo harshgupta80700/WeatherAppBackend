@@ -67,9 +67,14 @@ app.get('/help',(req,res)=>{
 // })
 
 app.get('/weather',(req,res)=>{
+
+    if(!req.query.address){
+        return res.send({
+            error: 'An address is required'
+        })
+    }
     res.send({
-        forecast: 'There is sunny day out there',
-        location: 'This is located in India'
+        address: req.query.address
     })
 })
 
@@ -80,9 +85,7 @@ app.get('/products',(req,res)=>{
             error: 'Search parameter is compulsory'
         })
     }
-
-    console.log(req.query)
-    
+    console.log(req.query)    
     res.send({
         products: []
     })
