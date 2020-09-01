@@ -73,6 +73,12 @@ app.get('/weather',(req,res)=>{
     })
 })
 
+app.get('/products',(req,res)=>{
+    res.send({
+        products: []
+    })
+})
+
 app.get('/help/*',(req,res)=>{
     res.render('errorpage',{
         title: 'Home Page not found',
