@@ -1,5 +1,6 @@
 const path = require('path')
 const express = require('express')
+const hbs = require('hbs')
 
 // console.log(__dirname)
 // console.log(path.join(__dirname,'..'))
@@ -7,9 +8,11 @@ const express = require('express')
 const app = express()
 const publicDirectoryPath = path.join(__dirname,'../public')
 const viewPath = path.join(__dirname,'../templates/views')
+const partialsPath = path.join(__dirname , '../templates/partials')
 
 app.set('view engine','hbs')
 app.set('views',viewPath)
+hbs.registerPartials(partialsPath)
 
 
 app.use(express.static(publicDirectoryPath))
