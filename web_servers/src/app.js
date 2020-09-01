@@ -73,8 +73,16 @@ app.get('/weather',(req,res)=>{
     })
 })
 
+app.get('/help/*',(req,res)=>{
+    res.render('errorpage',{
+        title: 'Home article not found'
+    })
+})
+
 app.get('*',(req,res)=>{
-    res.send('MY 404 Page')
+    res.render('errorpage',{
+        title: 'Page not found'
+    })
 })
 
 app.listen(3000,()=>{
