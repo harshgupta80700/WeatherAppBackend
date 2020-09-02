@@ -18,9 +18,9 @@ const getweatherinfo = (latitute, longitude, callback)=>{
 
     request({url,json:true},(error,{body})=>{
         if(error){
-            callback('Unable to connect with the get weather service!',undefined)
+            callback('Unable to connect with the get weather service!',{})
         }else if(body.error){
-            callback(body.error.message,undefined)
+            callback(body.error.message,{})
         }else{
             callback(undefined,{
                 name: body.location.name,
