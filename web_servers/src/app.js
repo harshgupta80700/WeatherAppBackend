@@ -2,6 +2,10 @@ const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
 
+const getLandL = require('./utils/getLandL')
+const getWeatherInfo = require('./utils/weather')
+const getweatherinfo = require('./utils/weather')
+
 // console.log(__dirname)
 // console.log(path.join(__dirname,'..'))
 
@@ -73,9 +77,34 @@ app.get('/weather',(req,res)=>{
             error: 'An address is required'
         })
     }
-    res.send({
-        address: req.query.address
+
+    getLandL(req.query.address,(error,{latitude,longitude,location})=>{
+        if(error){
+            return res.send({
+                error
+            })
+        }
+        getWeatherInfo(latitude,longitude,(error,{name,region,country,tempinf,tempinc})=>{
+            if(error){
+                return res.send({
+                    error
+                })
+            }
+            res.send({
+                name: name,
+                address: req.query.address,
+                latitude: latitude,
+                longitude: longitude,
+                region: region,
+                country:country,
+                location: location,
+                tempinF:tempinf,
+                tempinC: tempinc
+            })
+
+        })
     })
+
 })
 
 app.get('/products',(req,res)=>{
