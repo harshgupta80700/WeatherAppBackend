@@ -78,13 +78,13 @@ app.get('/weather',(req,res)=>{
         })
     }
 
-    getLandL(req.query.address,(error,{latitude,longitude,location})=>{
+    getLandL(req.query.address,(error,{latitude,longitude,location}={})=>{
         if(error){
             return res.send({
                 error
             })
         }
-        getWeatherInfo(latitude,longitude,(error,{name,region,country,tempinf,tempinc})=>{
+        getWeatherInfo(latitude,longitude,(error,{name,region,country,tempinf,tempinc}={})=>{
             if(error){
                 return res.send({
                     error

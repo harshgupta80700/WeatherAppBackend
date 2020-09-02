@@ -35,9 +35,9 @@ const getLatituteandLongitute = (address,callback) => {
 
     request({url , json: true},(error, {body})=>{
         if(error){
-            callback('Unable to connect to get Latitute and Longitute service!',{})
+            callback('Unable to connect to get Latitute and Longitute service!',undefined)
         }else if(body.features.length === 0){
-            callback('Unable to find the Latitude and Longitute of this address!',{})
+            callback('Unable to find the Latitude and Longitute of this address!',undefined)
         }else{
             callback(undefined,{
                 latitude: body.features[0].center[1], 
