@@ -1,4 +1,4 @@
-const greeter = (name ,age)=>{
+const greeter = (name = 'user' ,age)=>{
     console.log('Hello '+ name+' and his age is '+ age)
 }
 
