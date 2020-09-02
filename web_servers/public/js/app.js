@@ -20,7 +20,7 @@ weatherForm.addEventListener('submit', (e) => {
     message2.textContent = ''
     const location = search.value
     message1.textContent = 'Loading...'
-    fetch('http://localhost:3000/weather?address='+location).then((response) => {
+    fetch('/weather?address='+location).then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 //console.log('Invalid address location')
@@ -29,8 +29,8 @@ weatherForm.addEventListener('submit', (e) => {
             } else {
                 console.log(data.location)
                 console.log(data.tempinC)
-                message1.textContent = data.location
-                message2.textContent = data.tempinC
+                message1.textContent = 'Location: ' + data.location
+                message2.textContent = 'Temp in C: ' + data.tempinC
             }
         })
     })
